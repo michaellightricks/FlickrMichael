@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fy-zK-S9Q">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </containerView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GRI-Ja-2md">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8fy-zK-S9Q" firstAttribute="centerX" secondItem="GRI-Ja-2md" secondAttribute="centerX" id="0l3-Y4-pUV"/>
+                            <constraint firstItem="8fy-zK-S9Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NiO-Bp-JxC"/>
+                            <constraint firstAttribute="trailing" secondItem="8fy-zK-S9Q" secondAttribute="trailing" id="Nnm-X4-a84"/>
+                            <constraint firstItem="8fy-zK-S9Q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="edq-ff-2jq"/>
+                            <constraint firstItem="8fy-zK-S9Q" firstAttribute="centerY" secondItem="GRI-Ja-2md" secondAttribute="centerY" id="ifW-P4-Hyr"/>
+                            <constraint firstItem="8fy-zK-S9Q" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="wBp-NC-u0x"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="GRI-Ja-2md" id="DaE-77-hzC"/>
+                        <outlet property="containerView" destination="8fy-zK-S9Q" id="5sA-48-Y0L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568" y="611"/>
+        </scene>
+    </scenes>
+</document>
