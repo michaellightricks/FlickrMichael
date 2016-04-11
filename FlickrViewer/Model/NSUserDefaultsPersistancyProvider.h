@@ -3,13 +3,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FlickrSource.h"
 #import "Protocols.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// Provider of image data by given \c url.
-@interface ImageDataProvider : FlickrSource <ImageDataProviderProtocol>
+/// Implementation of persistance storage provider using \c NSUserDefaults.
+@interface NSUserDefaultsPersistancyProvider : NSObject <PersistancyProvider>
 @end
 
 NS_ASSUME_NONNULL_END

@@ -6,13 +6,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// Object holding the data of the photo record.
-@interface PhotoRecord : NSObject
+@interface PhotoRecord : NSObject <NSCoding>
+
+- (instancetype)init NS_UNAVAILABLE;
 
 /// Initializes the record with photo's \c url as location \c title string and \c description.
 - (instancetype)initWithURL:(NSURL *)url title:(NSString *)title
                 description:(NSString *)description NS_DESIGNATED_INITIALIZER;
-
-- (instancetype)init NS_UNAVAILABLE;
 
 /// Photo's location URL.
 @property (strong, nonatomic) NSURL *url;

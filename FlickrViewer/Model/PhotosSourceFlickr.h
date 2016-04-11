@@ -14,16 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithURLSession:(NSURLSession *)session NS_UNAVAILABLE;
+- (instancetype)initWithTasksFactory:(id<NetworkTasksFactory>)factory NS_UNAVAILABLE;
 
 /// Initializes the source with specific \c placeID to get photos from and \c session to perform
 /// network operations with.
 - (instancetype)initWithPlaceID:(NSString *)placeID
-                        session:(NSURLSession *)session NS_DESIGNATED_INITIALIZER;
-
-/// Async operation to provide the collection of \c count photos records taken at specified place.
-- (id <CancelTokenProtocol>)requestPhotoRecordsWithMaxCount:(NSUInteger)count
-                                                 completion:(photoRecordsBlockType)completion;
+                   tasksFactory:(id<NetworkTasksFactory>)factory NS_DESIGNATED_INITIALIZER;
 
 @end
 

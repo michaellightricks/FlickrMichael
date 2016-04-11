@@ -21,14 +21,21 @@ NS_ASSUME_NONNULL_BEGIN
 /// Current running task cancellation token.
 @property (strong, nonatomic) id<CancelTokenProtocol> currentToken;
 
+/// Title of displayed image.
+@property (strong, nonatomic) NSString *imageTitle;
+
 @end
 
 @implementation ScrollViewController
 
-- (instancetype)initWithUrl:(NSURL *)url provider:(id<ImageDataProviderProtocol>)provider {
+- (instancetype)initWithUrl:(NSURL *)url title:(NSString *)title
+                   provider:(id<ImageDataProviderProtocol>)provider {
   if (self = [super initWithNibName:nil bundle:nil]) {
     _imageUrl = url;
+    _imageTitle = title;
     _imageDataProvider = provider;
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
   }
   
   return self;
@@ -39,16 +46,17 @@ NS_ASSUME_NONNULL_BEGIN
 
   [self.activityView startAnimating];
   
+  self.title = self.imageTitle;
+  
   self.currentToken =
-      [self.imageDataProvider loadImageDataFromUrl:self.imageUrl
-                                        completion:^(NSData * _Nullable data,
-                                                   NSError * _Nullable error,
-                                                   id<CancelTokenProtocol> cancelToken) {
+  [self.imageDataProvider loadImageDataFromUrl:self.imageUrl
+                                    completion:^(NSData * _Nullable data,
+                                                 id<CancelTokenProtocol> cancelToken) {
     dispatch_async(dispatch_get_main_queue(), ^{
       [self.activityView stopAnimating];
     });
     
-    if (error || cancelToken.cancelled) {
+    if (cancelToken.cancelled) {
       return;
     }
     
@@ -70,6 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
   self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
   self.scrollView.delegate = self;
   self.scrollView.scrollEnabled = YES;
+  self.scrollView.backgroundColor = [UIColor whiteColor];
   [self.view addSubview:self.scrollView];
   
   self.imageView = [[UIImageView alloc] init];

@@ -4,7 +4,7 @@
 #import "MainViewController.h"
 
 #import "ImageDataProvider.h"
-#import "NSURLSessionHelper.h"
+#import "NSURLSessionTasksFactory.h"
 #import "PhotoRecord.h"
 #import "PhotosSourceFlickr.h"
 #import "PlaceRecord.h"
@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainViewController ()
 
-/// URL session to perform the network operations on.
-@property (strong, nonatomic) NSURLSession *session;
+/// Protocol to perform the network tasks with.
+@property (strong, nonatomic) id<NetworkTasksFactory> tasksFactory;
 
 /// Scroll view controller that loads and presents the image.
 @property (strong, nonatomic) ScrollViewController *scrollViewController;
@@ -41,13 +41,18 @@ NS_ASSUME_NONNULL_BEGIN
   // together using completion blocks.
   
   // First getting Flickr top places.
-  PlacesSourceFlickr *placesSource = [[PlacesSourceFlickr alloc] initWithURLSession:self.session];
+  PlacesSourceFlickr *placesSource =
+      [[PlacesSourceFlickr alloc] initWithTasksFactory:self.tasksFactory];
   
   [placesSource requestPlaceRecordsWithMaxCount:1
                                      completion:^(NSArray<PlaceRecord *> * _Nullable placeRecords,
-                                                  NSError * _Nullable error) {
-    if (error || !placeRecords.count) {
-      [self handleError:error message:@"Error occured during place records request."];
+                                                  id<CancelTokenProtocol> token) {
+    if (!placeRecords.count) {
+      [token cancelWithError:[self.tasksFactory
+          errorWithMessage:@"No place records was loaded."]];
+    }
+    if (token.cancelled) {
+      [self handleError:token.error message:@"Error occured during place records request."];
       return;
     }
    
@@ -56,37 +61,39 @@ NS_ASSUME_NONNULL_BEGIN
    
     PhotosSourceFlickrByPlace *photoSource =
         [[PhotosSourceFlickrByPlace alloc] initWithPlaceID:topPlace.placeID
-                                                   session:self.session];
+                                              tasksFactory:self.tasksFactory];
    
     [photoSource requestPhotoRecordsWithMaxCount:1
                                       completion:^(NSArray<PhotoRecord *> * _Nullable photoRecords,
-                                                   NSError * _Nullable error) {
+                                                   id<CancelTokenProtocol> token) {
       if (!photoRecords.count) {
-        error = [NSURLSessionHelper createErrorWithMessage:@"No photo records was loaded."];
+        [token cancelWithError:[self.tasksFactory
+            errorWithMessage:@"No photo records was loaded."]];
       }
                                         
-      if (error) {
-        [self handleError:error message:@"Error occured during photo records request."];
+      if (token.cancelled) {
+        [self handleError:token.error message:@"Error occured during photo records request."];
         return;
       }
     
       PhotoRecord *topPhoto = photoRecords[0];
      
-      [self showPhotoFromURL:topPhoto.url];
+      [self showPhotoFromURL:topPhoto.url title:topPhoto.title];
     }];
   }];
 }
 
-- (void)showPhotoFromURL:(NSURL *)url {
+- (void)showPhotoFromURL:(NSURL *)url title:(NSString *)title{
   // Photo downloading is handled by scrollview controller so redirecting the request there.
   dispatch_async(dispatch_get_main_queue(), ^{
     [self.scrollViewController.view removeFromSuperview];
     [self.scrollViewController removeFromParentViewController];
     
-    ImageDataProvider *provider = [[ImageDataProvider alloc] initWithURLSession:self.session];
+    ImageDataProvider *provider =
+        [[ImageDataProvider alloc] initWithTasksFactory:self.tasksFactory];
     
     self.scrollViewController =
-        [[ScrollViewController alloc] initWithUrl:url provider:provider];
+    [[ScrollViewController alloc] initWithUrl:url title:title provider:provider];
 
     [self addChildViewController:self.scrollViewController];
     self.scrollViewController.view.frame = self.containerView.bounds;
@@ -115,13 +122,14 @@ NS_ASSUME_NONNULL_BEGIN
   });
 }
 
-- (NSURLSession *)session {
-  if (!_session) {
+- (id<NetworkTasksFactory>)tasksFactory {
+  if (!_tasksFactory) {
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-    _session = [NSURLSession sessionWithConfiguration:config];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    _tasksFactory = [[NSURLSessionTasksFactory alloc] initWithSession:session];
   }
   
-  return _session;
+  return _tasksFactory;
 }
 
 @end

@@ -12,11 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-/// Initilizes the source with url \c session, which will be used for all network requests.
-- (instancetype)initWithURLSession:(NSURLSession *)session NS_DESIGNATED_INITIALIZER;
+/// Initializes the source with network tasks \c factory
+- (instancetype)initWithTasksFactory:(id<NetworkTasksFactory>)factory
+    NS_DESIGNATED_INITIALIZER;
 
-/// URLSession to perform network operations with.
-@property (readonly, nonatomic) NSURLSession *session;
+/// Used to perform network tasks.
+@property (readonly, nonatomic) id<NetworkTasksFactory> tasksFactory;
 
 @end
 
