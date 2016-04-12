@@ -21,8 +21,8 @@ typedef void(^downloadCompletionBlockType)(NSURL *imageURL,
 - (instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil
                          bundle:(NSBundle * _Nullable)nibBundleOrNil NS_UNAVAILABLE;
 
-/// Initializes the view controller with \c url of the image to load and \c provider.
-- (instancetype)initWithUrl:(NSURL *)url
+/// Initializes the view controller with \c url and \c title of the image to load and \c provider.
+- (instancetype)initWithUrl:(NSURL *)url title:(NSString *)title
                    provider:(id<ImageDataProviderProtocol>)provider NS_DESIGNATED_INITIALIZER;
 
 /// Provides the image data by URL.

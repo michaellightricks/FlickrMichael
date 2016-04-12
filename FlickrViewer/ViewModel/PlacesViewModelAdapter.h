@@ -2,14 +2,14 @@
 // Created by Michael Kupchick.
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-#import "FlickrSource.h"
-#import "Protocols.h"
+#import "TableViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// Provider of image data by given \c url.
-@interface ImageDataProvider : FlickrSource <ImageDataProviderProtocol>
+/// Adpater for places row.
+@interface PlacesViewModelAdapter : NSObject <TableViewCellAdapter>
 @end
 
 NS_ASSUME_NONNULL_END

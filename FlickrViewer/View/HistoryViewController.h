@@ -2,14 +2,12 @@
 // Created by Michael Kupchick.
 
 #import <Foundation/Foundation.h>
-
-#import "FlickrSource.h"
-#import "Protocols.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// Provider of image data by given \c url.
-@interface ImageDataProvider : FlickrSource <ImageDataProviderProtocol>
+/// View controller that embeds the photos table for history view.
+@interface HistoryViewController : UINavigationController
 @end
 
 NS_ASSUME_NONNULL_END

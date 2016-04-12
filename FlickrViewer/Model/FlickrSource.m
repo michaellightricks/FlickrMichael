@@ -7,9 +7,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation FlickrSource
 
-- (instancetype)initWithURLSession:(NSURLSession *)session {
+- (instancetype)initWithTasksFactory:(id<NetworkTasksFactory>)factory {
   if (self = [super init]) {
-    _session = session;
+    _tasksFactory = factory;
   }
   
   return self;

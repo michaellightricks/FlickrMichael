@@ -4,7 +4,7 @@
 #import "PlacesSourceFlickr.h"
 
 #import "FlickrFetcher.h"
-#import "NSURLSessionHelper.h"
+#import "NSURLSessionTasksFactory.h"
 #import "PlaceRecord.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -20,12 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
                                                 completion:(placeRecordsBlockType)completion {
   NSURL *topPlacesUrl = [FlickrFetcher URLforTopPlaces];
   
-  return [NSURLSessionHelper runDataTaskWithUrl:topPlacesUrl
-                                        session:self.session
-                                     completion:^(NSData * _Nullable data,
-                                                  NSURLResponse * _Nullable response,
-                                                  NSError * _Nullable error,
-                                                  id<CancelTokenProtocol> cancelToken) {
+  return [self.tasksFactory runDataTaskWithUrl:topPlacesUrl
+                                    completion:^(NSData * _Nullable data,
+                                                 NSURLResponse * _Nullable response,
+                                                 id<CancelTokenProtocol> cancelToken) {
     NSDictionary<NSString *, id> *topPlaces = [NSJSONSerialization JSONObjectWithData:data
                                                                               options:0
                                                                                 error:nil];
@@ -45,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
   
   for (NSUInteger i = 0; i < count; ++i) {
     if (token.cancelled) {
-      completion(nil, [NSURLSessionHelper createCancelError]);
+      completion(nil, token);
       return;
     }
     
@@ -56,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
     [placeRecords addObject:[self getRecordByPlaceID:placeID content:placeContent]];
   }
   
-  completion(placeRecords, nil);
+  completion(placeRecords, token);
 }
 
 - (PlaceRecord *)getRecordByPlaceID:(NSString *)placeID content:(NSString *)content {

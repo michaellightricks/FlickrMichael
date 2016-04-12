@@ -3,6 +3,8 @@
 
 #import "PhotoRecord.h"
 
+#import "EXTKeyPathCoding.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @implementation PhotoRecord
@@ -16,6 +18,20 @@ NS_ASSUME_NONNULL_BEGIN
   }
   
   return self;
+  
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)decoder {
+  self = [self initWithURL:[decoder decodeObjectForKey:@keypath(self, url)]
+                     title:[decoder decodeObjectForKey:@keypath(self, title)]
+               description:[decoder decodeObjectForKey:@keypath(self, imageDescription)]];
+  return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+  [encoder encodeObject:_url forKey:@keypath(self, url)];
+  [encoder encodeObject:_title forKey:@keypath(self, title)];
+  [encoder encodeObject:_imageDescription forKey:@keypath(self, imageDescription)];
 }
 
 @end

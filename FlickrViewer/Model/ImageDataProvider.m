@@ -3,36 +3,20 @@
 
 #import "ImageDataProvider.h"
 
-#import "NSURLSessionHelper.h"
 #import "NSURLSessionTaskCancelToken.h"
+#import "NSURLSessionTasksFactory.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ImageDataProvider()
-
-/// URLSession to perform network operations with.
-@property (strong, nonatomic) NSURLSession *session;
-
-@end
-
 @implementation ImageDataProvider
-
-- (instancetype)initWithURLSession:(NSURLSession *)session {
-  if (self = [super init]) {
-    self.session = session;
-  }
-  
-  return self;
-}
 
 - (id<CancelTokenProtocol>)loadImageDataFromUrl:(NSURL *)url
                                      completion:(loadImageDataCompleteBlockType)completion {
-  return [NSURLSessionHelper runDownloadTaskWithUrl:url session:self.session
-                                         completion:^(NSData * _Nullable data,
-                                                      NSURLResponse * _Nullable response,
-                                                      NSError * _Nullable error,
-                                                      id<CancelTokenProtocol> cancelToken) {
-    completion(data, error, cancelToken);
+  return [self.tasksFactory runDownloadTaskWithUrl:url
+                                        completion:^(NSData * _Nullable data,
+                                                     NSURLResponse * _Nullable response,
+                                                     id<CancelTokenProtocol> cancelToken) {
+    completion(data, cancelToken);
   }];
 }
 

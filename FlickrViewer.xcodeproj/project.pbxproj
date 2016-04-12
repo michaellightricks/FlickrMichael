@@ -22,10 +22,25 @@
 		6478F87F1C88475B00AFB932 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F87E1C88475B00AFB932 /* MainViewController.m */; };
 		6478F8821C88476600AFB932 /* NSURLSessionTaskCancelToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8811C88476600AFB932 /* NSURLSessionTaskCancelToken.m */; };
 		6478F8AF1C8D712B00AFB932 /* ImageDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8AE1C8D712B00AFB932 /* ImageDataProvider.m */; };
-		6478F8B21C8D746C00AFB932 /* NSURLSessionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8B11C8D746C00AFB932 /* NSURLSessionHelper.m */; };
+		6478F8B21C8D746C00AFB932 /* NSURLSessionTasksFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8B11C8D746C00AFB932 /* NSURLSessionTasksFactory.m */; };
+		6478F8BB1C8F14A600AFB932 /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8BA1C8F14A600AFB932 /* PlacesTableViewController.m */; };
+		6478F8BE1C8F14D500AFB932 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8BD1C8F14D500AFB932 /* PhotosTableViewController.m */; };
+		6478F8C41C90741500AFB932 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8C31C90741500AFB932 /* TableViewController.m */; };
+		6478F8C81C90806E00AFB932 /* TableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8C71C90806E00AFB932 /* TableViewModel.m */; };
+		6478F8CB1C915DD400AFB932 /* PhotosViewModelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8CA1C915DD400AFB932 /* PhotosViewModelAdapter.m */; };
+		6478F8CE1C915EE400AFB932 /* PlacesViewModelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8CD1C915EE400AFB932 /* PlacesViewModelAdapter.m */; };
+		6478F8D41C956C0500AFB932 /* PhotoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8D31C956C0500AFB932 /* PhotoPresenter.m */; };
+		6478F8DA1C9587A500AFB932 /* HistoryPhotosSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8D91C9587A500AFB932 /* HistoryPhotosSource.m */; };
+		6478F8DD1C95981E00AFB932 /* ProtocolsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8DC1C95981E00AFB932 /* ProtocolsFactory.m */; };
+		6478F8E01C9599B300AFB932 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8DF1C9599B300AFB932 /* HistoryViewController.m */; };
+		6478F8E31C98139500AFB932 /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6478F8E21C98139500AFB932 /* SplitViewController.m */; };
+		649E81D11CB12038007A8ECE /* NSUserDefaultsPersistancyProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E81D01CB12038007A8ECE /* NSUserDefaultsPersistancyProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6468C9271CBB8C910027DE21 /* libextobjc_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libextobjc_iOS.a; path = "../../../Library/Developer/Xcode/DerivedData/extobjc-drkhsfyianurpqdcpxhuhitsxjjt/Build/Products/Debug-iphoneos/libextobjc_iOS.a"; sourceTree = "<group>"; };
+		6468C92A1CBB902E0027DE21 /* EXTKeyPathCoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXTKeyPathCoding.h; sourceTree = "<group>"; };
+		6468C92B1CBBDBBD0027DE21 /* metamacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
 		6478F8401C86C43600AFB932 /* FlickrViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6478F8441C86C43600AFB932 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6478F8461C86C43600AFB932 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,8 +71,32 @@
 		6478F8811C88476600AFB932 /* NSURLSessionTaskCancelToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLSessionTaskCancelToken.m; path = Model/NSURLSessionTaskCancelToken.m; sourceTree = "<group>"; };
 		6478F8AD1C8D712B00AFB932 /* ImageDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageDataProvider.h; path = Model/ImageDataProvider.h; sourceTree = "<group>"; };
 		6478F8AE1C8D712B00AFB932 /* ImageDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageDataProvider.m; path = Model/ImageDataProvider.m; sourceTree = "<group>"; };
-		6478F8B01C8D746C00AFB932 /* NSURLSessionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLSessionHelper.h; path = Model/NSURLSessionHelper.h; sourceTree = "<group>"; };
-		6478F8B11C8D746C00AFB932 /* NSURLSessionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLSessionHelper.m; path = Model/NSURLSessionHelper.m; sourceTree = "<group>"; };
+		6478F8B01C8D746C00AFB932 /* NSURLSessionTasksFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLSessionTasksFactory.h; path = Model/NSURLSessionTasksFactory.h; sourceTree = "<group>"; };
+		6478F8B11C8D746C00AFB932 /* NSURLSessionTasksFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLSessionTasksFactory.m; path = Model/NSURLSessionTasksFactory.m; sourceTree = "<group>"; };
+		6478F8B91C8F14A600AFB932 /* PlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlacesTableViewController.h; path = View/PlacesTableViewController.h; sourceTree = "<group>"; };
+		6478F8BA1C8F14A600AFB932 /* PlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlacesTableViewController.m; path = View/PlacesTableViewController.m; sourceTree = "<group>"; };
+		6478F8BC1C8F14D500AFB932 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotosTableViewController.h; path = View/PhotosTableViewController.h; sourceTree = "<group>"; };
+		6478F8BD1C8F14D500AFB932 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotosTableViewController.m; path = View/PhotosTableViewController.m; sourceTree = "<group>"; };
+		6478F8C21C90741500AFB932 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = View/TableViewController.h; sourceTree = "<group>"; };
+		6478F8C31C90741500AFB932 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = View/TableViewController.m; sourceTree = "<group>"; };
+		6478F8C61C90806E00AFB932 /* TableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewModel.h; path = ViewModel/TableViewModel.h; sourceTree = "<group>"; };
+		6478F8C71C90806E00AFB932 /* TableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewModel.m; path = ViewModel/TableViewModel.m; sourceTree = "<group>"; };
+		6478F8C91C915DD400AFB932 /* PhotosViewModelAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotosViewModelAdapter.h; path = ViewModel/PhotosViewModelAdapter.h; sourceTree = "<group>"; };
+		6478F8CA1C915DD400AFB932 /* PhotosViewModelAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotosViewModelAdapter.m; path = ViewModel/PhotosViewModelAdapter.m; sourceTree = "<group>"; };
+		6478F8CC1C915EE400AFB932 /* PlacesViewModelAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlacesViewModelAdapter.h; path = ViewModel/PlacesViewModelAdapter.h; sourceTree = "<group>"; };
+		6478F8CD1C915EE400AFB932 /* PlacesViewModelAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlacesViewModelAdapter.m; path = ViewModel/PlacesViewModelAdapter.m; sourceTree = "<group>"; };
+		6478F8D21C956C0500AFB932 /* PhotoPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoPresenter.h; path = View/PhotoPresenter.h; sourceTree = "<group>"; };
+		6478F8D31C956C0500AFB932 /* PhotoPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoPresenter.m; path = View/PhotoPresenter.m; sourceTree = "<group>"; };
+		6478F8D81C9587A500AFB932 /* HistoryPhotosSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryPhotosSource.h; path = Model/HistoryPhotosSource.h; sourceTree = "<group>"; };
+		6478F8D91C9587A500AFB932 /* HistoryPhotosSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryPhotosSource.m; path = Model/HistoryPhotosSource.m; sourceTree = "<group>"; };
+		6478F8DB1C95981E00AFB932 /* ProtocolsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProtocolsFactory.h; path = Model/ProtocolsFactory.h; sourceTree = "<group>"; };
+		6478F8DC1C95981E00AFB932 /* ProtocolsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProtocolsFactory.m; path = Model/ProtocolsFactory.m; sourceTree = "<group>"; };
+		6478F8DE1C9599B300AFB932 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewController.h; path = View/HistoryViewController.h; sourceTree = "<group>"; };
+		6478F8DF1C9599B300AFB932 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = View/HistoryViewController.m; sourceTree = "<group>"; };
+		6478F8E11C98139500AFB932 /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplitViewController.h; path = View/SplitViewController.h; sourceTree = "<group>"; };
+		6478F8E21C98139500AFB932 /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplitViewController.m; path = View/SplitViewController.m; sourceTree = "<group>"; };
+		649E81CF1CB12038007A8ECE /* NSUserDefaultsPersistancyProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSUserDefaultsPersistancyProvider.h; path = Model/NSUserDefaultsPersistancyProvider.h; sourceTree = "<group>"; };
+		649E81D01CB12038007A8ECE /* NSUserDefaultsPersistancyProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSUserDefaultsPersistancyProvider.m; path = Model/NSUserDefaultsPersistancyProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +115,7 @@
 			children = (
 				6478F8421C86C43600AFB932 /* FlickrViewer */,
 				6478F8411C86C43600AFB932 /* Products */,
+				6468C9271CBB8C910027DE21 /* libextobjc_iOS.a */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +130,7 @@
 		6478F8421C86C43600AFB932 /* FlickrViewer */ = {
 			isa = PBXGroup;
 			children = (
+				6478F8C51C907C5800AFB932 /* ViewModel */,
 				6478F8761C8822C000AFB932 /* View */,
 				6478F8711C86ED1500AFB932 /* FlickrFetcher */,
 				6478F85A1C86C48600AFB932 /* Model */,
@@ -108,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				6478F8441C86C43600AFB932 /* main.m */,
+				6468C92A1CBB902E0027DE21 /* EXTKeyPathCoding.h */,
+				6468C92B1CBBDBBD0027DE21 /* metamacros.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -115,6 +158,8 @@
 		6478F85A1C86C48600AFB932 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6478F8DB1C95981E00AFB932 /* ProtocolsFactory.h */,
+				6478F8DC1C95981E00AFB932 /* ProtocolsFactory.m */,
 				6478F8801C88476600AFB932 /* NSURLSessionTaskCancelToken.h */,
 				6478F8811C88476600AFB932 /* NSURLSessionTaskCancelToken.m */,
 				6478F85B1C86C4B800AFB932 /* PhotoRecord.h */,
@@ -130,8 +175,12 @@
 				6478F86F1C86DA4A00AFB932 /* FlickrSource.m */,
 				6478F8AD1C8D712B00AFB932 /* ImageDataProvider.h */,
 				6478F8AE1C8D712B00AFB932 /* ImageDataProvider.m */,
-				6478F8B01C8D746C00AFB932 /* NSURLSessionHelper.h */,
-				6478F8B11C8D746C00AFB932 /* NSURLSessionHelper.m */,
+				6478F8B01C8D746C00AFB932 /* NSURLSessionTasksFactory.h */,
+				6478F8B11C8D746C00AFB932 /* NSURLSessionTasksFactory.m */,
+				6478F8D81C9587A500AFB932 /* HistoryPhotosSource.h */,
+				6478F8D91C9587A500AFB932 /* HistoryPhotosSource.m */,
+				649E81CF1CB12038007A8ECE /* NSUserDefaultsPersistancyProvider.h */,
+				649E81D01CB12038007A8ECE /* NSUserDefaultsPersistancyProvider.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -153,8 +202,33 @@
 				6478F87E1C88475B00AFB932 /* MainViewController.m */,
 				6478F8771C88231300AFB932 /* ScrollViewController.h */,
 				6478F8781C88231300AFB932 /* ScrollViewController.m */,
+				6478F8B91C8F14A600AFB932 /* PlacesTableViewController.h */,
+				6478F8BA1C8F14A600AFB932 /* PlacesTableViewController.m */,
+				6478F8BC1C8F14D500AFB932 /* PhotosTableViewController.h */,
+				6478F8BD1C8F14D500AFB932 /* PhotosTableViewController.m */,
+				6478F8C21C90741500AFB932 /* TableViewController.h */,
+				6478F8C31C90741500AFB932 /* TableViewController.m */,
+				6478F8D21C956C0500AFB932 /* PhotoPresenter.h */,
+				6478F8D31C956C0500AFB932 /* PhotoPresenter.m */,
+				6478F8DE1C9599B300AFB932 /* HistoryViewController.h */,
+				6478F8DF1C9599B300AFB932 /* HistoryViewController.m */,
+				6478F8E11C98139500AFB932 /* SplitViewController.h */,
+				6478F8E21C98139500AFB932 /* SplitViewController.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		6478F8C51C907C5800AFB932 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6478F8C61C90806E00AFB932 /* TableViewModel.h */,
+				6478F8C71C90806E00AFB932 /* TableViewModel.m */,
+				6478F8C91C915DD400AFB932 /* PhotosViewModelAdapter.h */,
+				6478F8CA1C915DD400AFB932 /* PhotosViewModelAdapter.m */,
+				6478F8CC1C915EE400AFB932 /* PlacesViewModelAdapter.h */,
+				6478F8CD1C915EE400AFB932 /* PlacesViewModelAdapter.m */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,19 +302,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				649E81D11CB12038007A8ECE /* NSUserDefaultsPersistancyProvider.m in Sources */,
 				6478F8751C86ED1500AFB932 /* FlickrFetcher.m in Sources */,
+				6478F8D41C956C0500AFB932 /* PhotoPresenter.m in Sources */,
+				6478F8BB1C8F14A600AFB932 /* PlacesTableViewController.m in Sources */,
 				6478F85D1C86C4B800AFB932 /* PhotoRecord.m in Sources */,
+				6478F8C81C90806E00AFB932 /* TableViewModel.m in Sources */,
 				6478F8671C86D61A00AFB932 /* PlaceRecord.m in Sources */,
 				6478F8621C86C75100AFB932 /* PhotosSourceFlickr.m in Sources */,
+				6478F8DD1C95981E00AFB932 /* ProtocolsFactory.m in Sources */,
 				6478F87F1C88475B00AFB932 /* MainViewController.m in Sources */,
 				6478F8791C88231300AFB932 /* ScrollViewController.m in Sources */,
+				6478F8E01C9599B300AFB932 /* HistoryViewController.m in Sources */,
 				6478F8821C88476600AFB932 /* NSURLSessionTaskCancelToken.m in Sources */,
 				6478F8481C86C43600AFB932 /* AppDelegate.m in Sources */,
+				6478F8BE1C8F14D500AFB932 /* PhotosTableViewController.m in Sources */,
+				6478F8CE1C915EE400AFB932 /* PlacesViewModelAdapter.m in Sources */,
 				6478F8701C86DA4A00AFB932 /* FlickrSource.m in Sources */,
+				6478F8C41C90741500AFB932 /* TableViewController.m in Sources */,
+				6478F8CB1C915DD400AFB932 /* PhotosViewModelAdapter.m in Sources */,
 				6478F8451C86C43600AFB932 /* main.m in Sources */,
 				6478F8AF1C8D712B00AFB932 /* ImageDataProvider.m in Sources */,
 				6478F86A1C86D97200AFB932 /* PlacesSourceFlickr.m in Sources */,
-				6478F8B21C8D746C00AFB932 /* NSURLSessionHelper.m in Sources */,
+				6478F8E31C98139500AFB932 /* SplitViewController.m in Sources */,
+				6478F8DA1C9587A500AFB932 /* HistoryPhotosSource.m in Sources */,
+				6478F8B21C8D746C00AFB932 /* NSURLSessionTasksFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,8 +440,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/submodules/extobjc/";
 				INFOPLIST_FILE = FlickrViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/submodules/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/submodules/build/Products/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = www.lightricks.com.michael.FlickrViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -368,8 +460,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/submodules/extobjc/";
 				INFOPLIST_FILE = FlickrViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/submodules/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)/submodules/build/Products/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = www.lightricks.com.michael.FlickrViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
